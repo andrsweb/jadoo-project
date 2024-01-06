@@ -1,71 +1,53 @@
-.burger {
-  &__menu {
-    position: relative;
-    width: 40px;
-    height: 35px;
-    display: block;
-    margin-left: 10px;
-    z-index: 99;
+.burger__button {
+	width: 40px;
+	height: 25px;
+	position: relative;
+	z-index: 100;
+	cursor: pointer;
 
-    span {
-      position: absolute;
-      width: 100%;
-      height: 3px;
-      z-index: 99;
-      background-color: $black;
+	span {
+		display: block;
+		width: 100%;
+		height: 3px;
+		background-color: $black;
+		border-radius: 20px;
+		position: relative;
 
-      &::after {
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 3px;
-        top: 10px;
-        background-color: $black;
-      }
+		&::before, &::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 3px;
+			background-color: $black;
+			border-radius: 20px;
+			transition: transform ease $tr;
+		}
 
-      &::before {
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 3px;
-        bottom: -20px;
-        z-index: 99;
-        background-color: $black;
-      }
+		&::before {
+			top: 10px;
+		}
 
-      &.burger__active{
-        width: 30px;
-        height: 5px;
-        background-color: $white;
-        &::after {
-          transform: rotate(45deg);
-        }
-
-        &::before {
-          transform: rotate(-45deg);
-        }
-      }
-    }
-
-    @media all and (min-width: 1200px) {
-      display: none;
-    }
-  }
+		&::after {
+			top: -10px;
+		}
+	}
 }
 
-.burger__active  {
-  span {
-    height: 0;
-    &:after {
-      background-color: $white;
-      transform: rotate(45deg);
-      transition: transform 0.2s ease-in-out;
-    }
-    &:before {
-      background-color: $white;
-      top: 10px;
-      transform: rotate(-45deg);
-      transition: transform 0.2s ease-in-out;
-    }
-  }
+.header.opened {
+	.burger__button {
+		span {
+			transform: rotate(-45deg);
+
+			&::before {
+				transform: rotate(90deg);
+				top: 0;
+			}
+
+			&::after {
+				opacity: 0;
+			}
+		}
+	}
 }

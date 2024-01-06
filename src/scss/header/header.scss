@@ -1,150 +1,161 @@
 .header {
-  position: relative;
-  padding-top: 28px;
-  padding-bottom: 17px;
+	position: relative;
+	padding: 20px 0; // В одну строчку пиши падинг
 
-  @media all and (min-width: 790px) {
-    padding-top: 48px;
-    padding-bottom: 27px;
-  }
+	// @media all and (min-width: 790px) { // что это за странный медиа запрос, когда у нас есть брейкпоинты
+	// 	padding: 40px 0 27px;
+	// }
 
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+	@media all and (min-width: $md) {
+		padding: 40px 0 27px;
+	}
 
-  &__logo {
-    padding: 10px;
-    border-radius: 30px;
-    background-color: #FFFFFF;
-    z-index: 60;
-  }
+	&.opened {
+		background-color: $white;
+		.header__inner {
+			padding: 50px 0;
+			display: flex;
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+			top: 95px;
+			left: 0;
+			flex-direction: column;
+			background-color: $black;
+			z-index: 50;
+			overflow-y: auto;
 
-  &__inner {
-    display: none;
-    gap: 86px;
+			@media all and (min-width: $md) {
+				top: 122px;
+			}
 
-    @media all and (min-width: 1200px) {
-      display: flex;
-    }
+			@media all and (min-width: 1200px) { //у нас есть переменные
+				display: none;
+			}
+		}
+	}
 
-    &.open__menu {
-      padding: 50px 0;
-      display: flex;
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      top: 100px;
-      left: 0;
-      flex-direction: column;
-      background-color: $black;
-      z-index: 50;
-      overflow-y: auto;
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
 
-      @media all and (min-width: 1200px) {
-        display: none;
-      }
-    }
-  }
+	&__logo {
+		padding: 10px;
+		border-radius: 30px;
+		background-color: #FFFFFF;
+		z-index: 60;
+	}
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+	&__inner {
+		display: none;
+		gap: 86px;
 
-    @media all and (min-width: 1200px) {
-      flex-direction: row;
-      gap: 60px;
-    }
+		@media all and (min-width: 1200px) {
+			display: flex;
+		}
+	}
 
-    &_item > a {
-      color: #ffffff;
-      font-family: $ff;
-      font-size: 17px;
-      font-weight: $fw-regular;
-      line-height: normal;
-      text-decoration: none;
+	&__list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 50px;
 
-      @media all and (min-width: 1200px) {
-        color: #212832;
-      }
+		@media all and (min-width: 1200px) {
+			flex-direction: row;
+			gap: 60px;
+		}
 
-      &:hover {
-        color: #ffa453;
-      }
-    }
-  }
+		&_item>a {
+			color: #ffffff;
+			font-family: $ff;
+			font-size: 17px;
+			font-weight: $fw-regular;
+			line-height: normal;
+			text-decoration: none;
 
-  &__registration {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 45px;
+			@media all and (min-width: 1200px) {
+				color: #212832;
+			}
 
-    @media all and (min-width: 1200px) {
-      flex-direction: row;
-      gap: 45px;
-    }
+			&:hover {
+				color: #ffa453;
+			}
+		}
+	}
 
-    &_login {
-      color: #ffffff;
-      font-family: $ff;
-      font-size: 17px;
-      font-weight: $fw-medium;
-      line-height: normal;
-      border: none;
-      background: none;
-      cursor: pointer;
-      transition: color ease-out $tr;
+	&__registration {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 45px;
 
-      @media all and (min-width: 1200px) {
-        color: #212832;
-      }
+		@media all and (min-width: 1200px) {
+			flex-direction: row;
+			gap: 45px;
+		}
 
-      &:hover {
-        color: #ffa453;
-      }
-    }
-    &_password {
-      padding: 9px 22px;
-      color: #ffffff;
-      font-family: $ff;
-      font-size: 17px;
-      font-weight: $fw-medium;
-      line-height: normal;
-      border-radius: 5px;
-      background: none;
-      border: 1px solid #212832;
-      cursor: pointer;
-      transition: all ease-out $tr;
+		&_login {
+			color: #ffffff; // $white??? переменные не просто так используются. Можно заменить весь цвет на сайте одним кликом. 
+			font-family: $ff;
+			font-size: 17px;
+			font-weight: $fw-medium;
+			line-height: normal;
+			border: none;
+			background: none;
+			cursor: pointer;
+			transition: color ease-out $tr;
 
-      @media all and (min-width: 1200px) {
-        color: #212832;
-      }
+			@media all and (min-width: 1200px) {
+				color: #212832;
+			}
 
-      &:hover {
-        color: #ffa453;
-        border: 1px solid #ffa453;
-      }
-    }
-    &_language {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      color: #ffffff;
-      font-family: $ff;
-      font-size: 17px;
-      font-weight: $fw-medium;
-      line-height: normal;
-      border: none;
-      background: none;
-      cursor: pointer;
+			&:hover {
+				color: #ffa453;
+			}
+		}
 
-      @media all and (min-width: 1200px) {
-        color: #212832;
-      }
-    }
-  }
+		&_password {
+			padding: 9px 22px;
+			color: #ffffff;
+			font-family: $ff;
+			font-size: 17px;
+			font-weight: $fw-medium;
+			line-height: normal;
+			border-radius: 5px;
+			background: none;
+			border: 1px solid #212832;
+			cursor: pointer;
+			transition: all ease-out $tr;
+
+			@media all and (min-width: 1200px) {
+				color: #212832;
+			}
+
+			&:hover {
+				color: #ffa453;
+				border: 1px solid #ffa453;
+			}
+		}
+
+		&_language {
+			display: flex;
+			align-items: center;
+			gap: 7px;
+			color: #ffffff;
+			font-family: $ff;
+			font-size: 17px;
+			font-weight: $fw-medium;
+			line-height: normal;
+			border: none;
+			background: none;
+			cursor: pointer;
+
+			@media all and (min-width: 1200px) {
+				color: #212832;
+			}
+		}
+	}
 }

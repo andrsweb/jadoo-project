@@ -1,6 +1,12 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination} from 'swiper/modules';
 
+document.addEventListener('DOMContentLoaded', () => {
+	'use strict'
+
+	initCatalogSlider()
+})
+
 const initCatalogSlider = () => {
     new Swiper('.swiper', {
         direction: 'vertical',
@@ -21,4 +27,3 @@ const initCatalogSlider = () => {
         },
     });
 }
-initCatalogSlider();

@@ -1,3 +1,3 @@
 import './common/common'
-import './common/swiper'
-import './common/burger-menu'
+import './swiper'
+import './burger-menu'
